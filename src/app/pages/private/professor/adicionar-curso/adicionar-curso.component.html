@@ -1,0 +1,23 @@
+<div class="box">
+  <form [formGroup]="addForm" (ngSubmit)="adicionar()">
+    <div class="mb-3">
+      <label for="tx-nome" class="form-label">Nome</label>
+      <input type="text" formControlName="nome" class="form-control" id="tx-nome"/>
+    </div>
+    <div class="mb-3">
+      <label for="tx-descricao" class="form-label">Descrição</label>
+      <input type="text" formControlName="descricao" class="form-control" id="tx-descricao"/>
+    </div>
+    <div class="mb-3">
+      <label for="tx-aulas" class="form-label">Aulas:</label><br>
+      <label for="tx-aula" class="form-label">Nome</label>
+      <input type="text" formControlName="nomeAula" class="form-control" id="tx-nomeAula"/>
+      <label for="tx-duracao" class="form-label">Duração</label>
+      <input type="text" formControlName="duracao" class="form-control" id="tx-duracao"/>
+      <label for="tx-topicos" class="form-label">Tópicos</label>
+      <input type="text" formControlName="topicos" class="form-control" id="tx-topicos"/>
+    </div>
+    <button style="margin-left: 30px;" type="submit" class="btn btn-primary">Adicionar</button>
+    <button style="margin-left: 20px;" [routerLink]="['/listar-professor']" type="submit" class="btn btn-primary">Voltar</button>
+  </form>
+</div>

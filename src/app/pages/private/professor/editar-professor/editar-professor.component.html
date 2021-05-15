@@ -1,0 +1,18 @@
+<div class="box">
+  <form [formGroup]="updateForm" (ngSubmit)="alterar()">
+    <div class="mb-3">
+      <label for="tx-nome" class="form-label">Nome</label>
+      <input type="text" formControlName="nome" class="form-control" id="tx-nome" formControlName="nome"/>
+    </div>
+    <div class="mb-3">
+      <label for="pwd-senha" class="form-label">Senha</label>
+      <input type="password" formControlName="senha" class="form-control" id="pwd-senha" placeholder="********"/>
+    </div>
+    <div class="mb-3">
+      <label for="pwd-novaSenha" class="form-label">Nova Senha</label>
+      <input type="password" formControlName="novaSenha" class="form-control" id="pwd-novaSenha" placeholder="********"/>
+    </div>
+    <button style="margin-left: 30px;" type="submit" class="btn btn-primary">Alterar</button>
+      <button style="margin-left: 20px;" [routerLink]="['/listar-professor']" type="submit" class="btn btn-primary">Voltar</button>
+  </form>
+</div>

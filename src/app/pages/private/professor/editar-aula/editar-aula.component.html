@@ -1,0 +1,18 @@
+<div class="box">
+  <form [formGroup]="updateForm" (ngSubmit)="alterar()">
+    <div class="mb-3">
+      <label for="tx-nome" class="form-label">Nome</label>
+      <input type="text" formControlName="nome" class="form-control" id="tx-nome" formControlName="nome"/>
+    </div>
+    <div class="mb-3">
+      <label for="pwd-duracao" class="form-label">Duração</label>
+      <input type="text" formControlName="duracao" class="form-control" id="pwd-duracao"/>
+    </div>
+    <div class="mb-3">
+      <label for="pwd-topico" class="form-label">Tópicos</label>
+      <input type="text" formControlName="topicos" class="form-control" id="pwd-topico"/>
+    </div>
+    <button style="margin-left: 30px;" type="submit" class="btn btn-primary">Alterar</button>
+    <button style="margin-left: 20px;" type="submit" class="btn btn-primary" [routerLink]="['/listar-professor']">Voltar</button>
+  </form>
+</div>

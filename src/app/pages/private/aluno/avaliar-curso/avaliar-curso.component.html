@@ -1,0 +1,10 @@
+<div class="box">
+  <form [formGroup]="avaliarForm" (ngSubmit)="avaliar()">
+    <div class="mb-3">
+      <label for="tx-nota" class="form-label">Nota</label>
+      <input type="text" formControlName="nota" class="form-control" id="tx-nota" />
+    </div>
+    <button style="margin-left: 10px;" type="submit" class="btn btn-primary mr-5">Avaliar</button>
+    <button style="margin-left: 20px;" type="submit" class="btn btn-primary" [routerLink]="['/listar-aluno']">Voltar</button>
+  </form>
+</div>

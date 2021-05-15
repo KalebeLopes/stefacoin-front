@@ -5,38 +5,42 @@ import { Curso } from 'src/app/models/curso';
 import { Professor } from 'src/app/models/professor';
 import { ProfessorService } from 'src/app/services/professor.service';
 import { CursoService } from 'src/app/services/curso.service';
+import { Aluno } from 'src/app/models/aluno';
+import { AlunoService } from 'src/app/services/aluno.service';
+import { AuthGuardService } from 'src/app/guards/auth-guard.service'
 
 @Component({
-  selector: 'app-listar-professor',
-  templateUrl: './listar-professor.component.html',
-  styleUrls: ['./listar-professor.component.css']
+  selector: 'app-listar-aluno',
+  templateUrl: './listar-aluno.component.html',
+  styleUrls: ['./listar-aluno.component.css']
 })
-export class ListarProfessorComponent implements OnInit {
 
-  professor: Professor = null
+export class ListarAlunoComponent implements OnInit {
+
+  aluno: Aluno = null
+  // cursos: Curso[] = []
 
   constructor(
-    private professorService: ProfessorService,
+    private alunoService: AlunoService,
     private cursoService: CursoService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authGuardService: AuthGuardService
   ) { }
 
   ngOnInit(): void {
+    this.authGuardService.canActivate
     this.allCursos()
   }
 
   allCursos(){
     const user = localStorage.getItem('user')
     const userJson = (JSON.parse(user))
-    this.professorService.obter({id: userJson.id}).subscribe(
+    this.alunoService.obter({id: userJson.id}).subscribe(
       (result) => {
-        console.log(result)
-        this.professor = result
-        // this.cursos = result.cursos
-        this.professor.cursos.forEach((obj) => { 
-          console.log(obj)
-        }) 
+        this.aluno = result
+        // this.cu
+        // console.log(this.aluno.cursos)
       },
       (err) => {
         this.toastr.error(err.error.message);
@@ -44,17 +48,9 @@ export class ListarProfessorComponent implements OnInit {
     )
   }
 
-  excluir(id: number) {
+  avaliar(id: number) {
+    this.router.navigate(['avaliar-curso', id])
     console.log(id)
-    this.cursoService.excluir(id).subscribe(
-      (result) => {
-        this.toastr.success(result.mensagem);
-        this.router.navigate(['listar-professor'])
-      },
-      (err) => {
-        this.toastr.error(err.error.message);
-      }
-    )
   }
 
   adicionarCurso(id: number) {

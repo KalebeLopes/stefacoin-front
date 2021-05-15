@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table table-striped table-responsive-md btn-table" style="margin-top: 40px;">
+    <thead *ngIf="this.cursos.length > 0">
+      <div></div>
+      <tr>
+        <th></th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Professor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let curso of cursos; let i = index" style="align-items: center;">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{curso.nome}}</td>
+        <td>{{curso.descricao}}</td>
+        <td>{{curso.idProfessor}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246); "[routerLink]="['/listar-professor']">Voltar</button>
+
+</div>

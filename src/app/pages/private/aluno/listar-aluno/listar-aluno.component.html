@@ -5,37 +5,38 @@
       <div></div>
       <tr>
         <th>Nome</th>
+        <th>Formação</th>
+        <th>Idade</th>
         <th>Email</th>
         <th>Editar</th>
-        <th>Adicionar</th>
       </tr>
     </thead>
     <tbody>
       <tr style="align-items: center;">
-        <td>{{this.professor.nome}}</td>
-        <td>{{this.professor.email}}</td>
-        <td><button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246);" [routerLink]="['/editar-professor/', this.professor.id]">Editar</button></td>
-        <td><button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246);" (click)="adicionarCurso(this.professor.id)">Adicionar Curso</button></td>
+        <td>{{this.aluno.nome}}</td>
+        <td>{{this.aluno.formacao}}</td>
+        <td>{{this.aluno.idade}}</td>
+        <td>{{this.aluno.email}}</td>
+        <td><button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246);" [routerLink]="['/editar-aluno/', this.aluno.id]">Editar</button></td>
       </tr>
     </tbody>
     <br><br>
-    <thead *ngIf="this.professor.cursos.length > 0">
-      <div></div>
+    <thead *ngIf="this.aluno.cursos.length > 0">
       <tr>
         <th>Cursos</th>
         <th>Nome</th>
         <th>Descrição</th>
         <th>Aulas</th>
-        <th>Excluir</th>
+        <th>Avaliar</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let curso of professor.cursos; let i = index" style="align-items: center;">
+      <tr *ngFor="let curso of aluno.cursos; let i = index" style="align-items: center;">
         <th scope="row">{{i + 1}}</th>
         <td>{{curso.nome}}</td>
         <td>{{curso.descricao}}</td>
         <td><button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246);" [routerLink]="['/listar-aula']" [queryParams]="{idCurso: curso.id}">Visualizar</button></td>
-        <td><button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246);" (click)="excluir(curso.id)">Excluir</button></td>
+        <td><button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246);" (click)="avaliar(curso.id)">Avaliar</button></td>
       </tr>
     </tbody>
 
