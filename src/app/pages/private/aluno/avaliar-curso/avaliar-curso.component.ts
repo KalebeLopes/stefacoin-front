@@ -45,9 +45,11 @@ export class AvaliarCursoComponent implements OnInit {
     this.alunoService.avaliarCurso(this.avaliacao).subscribe(
       (res) => {
         this.toastr.success(res.mensagem);
+        this.router.navigate(['/listar-aluno']);
       },
       (err) => {
         this.toastr.error(err.error.message);
+        this.router.navigate(['/listar-aluno']);
       },
     );
   }

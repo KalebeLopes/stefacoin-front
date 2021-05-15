@@ -13,12 +13,9 @@ const URL = 'http://localhost:3000/stefanini/aluno';
 export class AlunoService {
   constructor(private httpClient: HttpClient) {}
 
-  // #pegabandeira
-  // listar(filtro: Partial<Professor>): Observable<Professor[]> {
-  //   return this.httpClient.get<Professor[]>(URL, {
-  //     params: filtro,
-  //   });
-  // }
+  listar(): Observable<Aluno[]> {
+    return this.httpClient.get<Aluno[]>(URL)
+  }
 
   obter(filtro: Partial<Aluno>): Observable<Aluno> { 
     return this.httpClient.get<Aluno>(`${URL}/${filtro.id}`);
@@ -36,5 +33,11 @@ export class AlunoService {
     return this.httpClient.post<Mensagem>(`${URL}/avaliacao`, avaliacao);
   }
 
-  excluir() {}
+  matricular(id: number, curso: any): Observable<Mensagem> {
+    return this.httpClient.post<Mensagem>(`${URL}/curso/${id}`, curso);
+  }
+
+  excluir(id: number): Observable<Mensagem> {
+    return this.httpClient.delete<Mensagem>(`${URL}/${id}`);
+  }
 }

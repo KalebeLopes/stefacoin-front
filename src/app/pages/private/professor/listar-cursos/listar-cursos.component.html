@@ -7,6 +7,9 @@
         <th>Nome</th>
         <th>Descrição</th>
         <th>Professor</th>
+        <th *ngIf="this.userJson.tipo==2">Nota</th>
+        <th *ngIf="this.userJson.tipo==2">Matricular</th>
+
       </tr>
     </thead>
     <tbody>
@@ -15,9 +18,12 @@
         <td>{{curso.nome}}</td>
         <td>{{curso.descricao}}</td>
         <td>{{curso.idProfessor}}</td>
+        <td *ngIf="this.userJson.tipo==2">0</td>
+        <td *ngIf="this.userJson.tipo==2"><button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246);" (click)="matricular(curso.id)">Matricular</button></td>
       </tr>
     </tbody>
   </table>
-  <button type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246); "[routerLink]="['/listar-professor']">Voltar</button>
+  <button *ngIf="this.userJson.tipo==1" type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246); "[routerLink]="['/listar-professor']">Voltar</button>
+  <button *ngIf="this.userJson.tipo==2" type="button" class="btn btn-indigo btn-sm m-0" style="background-color: rgb(82, 164, 246); "[routerLink]="['/listar-aluno']">Voltar</button>
 
 </div>

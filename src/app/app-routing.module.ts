@@ -14,6 +14,7 @@ import { ListarCursosComponent } from './pages/private/professor/listar-cursos/l
 import { ListarAlunoComponent } from './pages/private/aluno/listar-aluno/listar-aluno.component';
 import { EditarAlunoComponent } from './pages/private/aluno/editar-aluno/editar-aluno.component';
 import { AvaliarCursoComponent } from './pages/private/aluno/avaliar-curso/avaliar-curso.component';
+import { ListarAlunosComponent } from './pages/private/professor/listar-alunos/listar-alunos.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,12 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     component: AvaliarCursoComponent,
   },
+  {
+    path: 'listar-alunos',
+    canActivate: [AuthGuardService],
+    component: ListarAlunosComponent,
+  },
+  
   {
     path: '**',
     component: PaginaNaoEncontradaComponent,

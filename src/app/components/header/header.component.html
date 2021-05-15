@@ -9,11 +9,14 @@
         <li class="nav-item" *ngIf="usuario?.tipo === 1">
           <a class="nav-link active" aria-current="page" href="/listar-cursos">Cursos</a>            
         </li>
+        <li class="nav-item" *ngIf="usuario?.tipo === 1">
+          <a class="nav-link active" aria-current="page" href="/listar-alunos">Alunos</a>            
+        </li>
         <li class="nav-item" *ngIf="usuario?.tipo === 2">
           <a class="nav-link" href="/listar-aluno">Area do Aluno</a>
         </li>
         <li class="nav-item" *ngIf="usuario?.tipo === 2">
-          <!-- <a class="nav-link active" aria-current="page" href="/listar-aluno">Area do Aluno</a>             -->
+          <a class="nav-link active" aria-current="page" href="/listar-cursos">Cursos</a>            
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

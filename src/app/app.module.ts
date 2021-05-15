@@ -24,6 +24,7 @@ import { ListarCursosComponent } from './pages/private/professor/listar-cursos/l
 import { ListarAlunoComponent } from './pages/private/aluno/listar-aluno/listar-aluno.component';
 import { EditarAlunoComponent } from './pages/private/aluno/editar-aluno/editar-aluno.component';
 import { AvaliarCursoComponent } from './pages/private/aluno/avaliar-curso/avaliar-curso.component';
+import { ListarAlunosComponent } from './pages/private/professor/listar-alunos/listar-alunos.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwttoken');
@@ -46,6 +47,7 @@ export function tokenGetter() {
     ListarAlunoComponent,
     EditarAlunoComponent,
     AvaliarCursoComponent,
+    ListarAlunosComponent,
   ],
   imports: [
     BrowserModule,

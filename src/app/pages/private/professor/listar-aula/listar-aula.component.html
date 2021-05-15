@@ -26,6 +26,6 @@
     </tbody>
   </table>
   <button type="button" class="btn btn-primary btn-sm m-0" *ngIf="this.userJson.tipo==1" [routerLink]="['/listar-professor']">Voltar</button>
-  <button type="button" class="btn btn-primary btn-sm m-0" [routerLink]="['/listar-aluno']">Voltar</button>
+  <button type="button" class="btn btn-primary btn-sm m-0" *ngIf="this.userJson.tipo==2" [routerLink]="['/listar-aluno']">Voltar</button>
 
 </div>

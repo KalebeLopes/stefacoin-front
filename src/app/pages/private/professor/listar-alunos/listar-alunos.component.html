@@ -1,0 +1,24 @@
+<div class="container">
+  <table class="table table-striped table-responsive-md btn-table" style="margin-top: 40px;">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nome</th>
+        <th>Formação</th>
+        <th>Idade</th>
+        <th>Email</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alunos of alunos; let i = index" style="align-items: center;">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{alunos.nome}}</td>
+        <td>{{alunos.formacao}}</td>
+        <td>{{alunos.idade}}</td>
+        <td>{{alunos.email}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm m-0" (click)="excluir(alunos.id)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
